@@ -1,6 +1,7 @@
 require 'java'
 
 java_package 'myruby'
+java_require 'MyAdderImpl'
 
 class MyAdderImpl
   include Java::MyAdder
