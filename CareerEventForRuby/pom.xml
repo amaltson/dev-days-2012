@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>otpp.devdays</groupId>
+	<artifactId>com.otpp.devdays.careerevent</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<description>This is a set of the domain objects that are related to contracts and career events</description>
+
+	<parent>
+		<groupId>otpp</groupId>
+		<artifactId>com.otpp.master-pom</artifactId>
+		<version>3.3.0</version>
+	</parent>
+
+	<packaging>jar</packaging>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
