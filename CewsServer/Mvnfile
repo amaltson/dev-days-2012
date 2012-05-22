@@ -1,0 +1,2 @@
+repository 'http://nexus:8081/nexus/content/groups/public'
+jar 'otpp.ws.careerevent:CareerEventWSDL', '2.3.5'

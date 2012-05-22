@@ -1,0 +1,2 @@
+repository 'http://nexus:8081/nexus/content/groups/public'
+jar 'otpp.devdays:com.otpp.devdays.careerevent', '1.0.0-SNAPSHOT'

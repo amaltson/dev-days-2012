@@ -1,4 +1,5 @@
 source "http://rubygems.org"
+gem "jbundler"
 gem "activerecord"
 gem "rake"
 gem "minitest", :group => :test
