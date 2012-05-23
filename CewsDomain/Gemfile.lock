@@ -1,6 +1,5 @@
 GEM
   remote: http://rubygems.org/
-  remote: http://nexus:8081/nexus/content/groups/public/
   specs:
     activemodel (3.2.3)
       activesupport (= 3.2.3)
@@ -29,6 +28,7 @@ GEM
 
 PLATFORMS
   java
+  ruby
 
 DEPENDENCIES
   activerecord
