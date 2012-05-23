@@ -117,7 +117,7 @@ public class Date implements Comparable<Date>, Serializable {
             throw new IllegalArgumentException("Cannot create date from null number.");
         }
         final String aDate = String.valueOf(dateNumber);
-        Calendar aLocalDate = null;
+        Calendar aLocalDate = Calendar.getInstance();
         final int year = Integer.valueOf(aDate.substring(0, 4));
         final int month = Integer.valueOf(aDate.substring(4, 6));
         final int day = Integer.valueOf(aDate.substring(6, 8));

@@ -1,3 +1,5 @@
+.jbundler
+
 *.gem
 *.rbc
 .bundle
