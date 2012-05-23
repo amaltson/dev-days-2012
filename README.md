@@ -5,6 +5,12 @@ Developer Days 2012 JRuby workshop
 ## Getting Started with the JRuby Projects
 To use the JRuby projects you first need to understand some Rubyisms
 
+### Install Maven Projects
+
+The JRuby projects depend on the `CareerEventWsdlForRuby` and
+`CareerEventForRuby` projects being installed into your local .m2. Just
+`cd` into both Java projects and `mvn clean install` them.
+
 ### Bundler
 
 The JRuby projects are using the [Bundler](http://gembundler.com/) a
