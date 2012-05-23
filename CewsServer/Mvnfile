@@ -1,2 +1,1 @@
-repository 'http://nexus:8081/nexus/content/groups/public'
-jar 'otpp.ws.careerevent:CareerEventWSDL', '2.3.5'
+jar 'otpp.devdays:otpp.devdays.ws.careerevent.CareerEventWSDL', '1.0.0-SNAPSHOT'
