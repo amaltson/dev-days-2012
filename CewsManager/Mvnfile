@@ -1,0 +1,2 @@
+jar 'otpp.devdays:com.otpp.devdays.careerevent', '1.0.0-SNAPSHOT'
+jar 'otpp.devdays:otpp.devdays.ws.careerevent.CareerEventWSDL', '1.0.0-SNAPSHOT'

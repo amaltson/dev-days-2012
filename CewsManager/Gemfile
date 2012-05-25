@@ -1,0 +1,4 @@
+source "http://rubygems.org"
+gem "jbundler"
+gem "rake"
+gem "minitest", :group => :test
