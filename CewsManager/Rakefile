@@ -1,7 +1,7 @@
 require 'rake/testtask'
 
 Maven = Struct.new(:groupId, :artifactId, :version)
-maven = Maven.new('otpp.careerevent', 'com.otpp.careerevent.CareerEventDomain', '1.0.0-SNAPSHOT')
+maven = Maven.new('otpp.careerevent', 'com.otpp.careerevent.CareerEventManager', '1.0.0-SNAPSHOT')
 jarfile = "#{maven.artifactId}-#{maven.version}.jar"
 
 task :default => [:clean, :install]
