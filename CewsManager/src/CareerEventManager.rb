@@ -30,8 +30,8 @@ class CareerEventManager
     @careerEventService = cews
   end
 
-  # List<com.otpp.domain.careerevent.events.AbsenceEvent> CareerEventManager.getAbsences(com.otpp.core.InternalReferenceNumber)
-  java_signature 'java.util.List<com.otpp.domain.careerevent.events.AbsenceEvent> getAbsences(com.otpp.core.InternalReferenceNumber)'
+  # List<com.otpp.careerevent.events.AbsenceEvent> CareerEventManager.getAbsences(com.otpp.core.InternalReferenceNumber)
+  java_signature 'java.util.List<com.otpp.careerevent.events.AbsenceEvent> getAbsences(com.otpp.core.InternalReferenceNumber)'
   def getAbsences(memberIrn)
 #    wsAbsences = @careerEventService.getAbsences(memberIrn.toString, nil, nil, nil, 0, AbsenceFilteringType::NONE)
     wsAbsences = @careerEventService.getAbsences(memberIrn.toString, nil, nil, nil, 0)
@@ -40,8 +40,8 @@ class CareerEventManager
   
   private
     
-    # List<com.otpp.domain.careerevent.events.AbsenceEvent> CareerEventManager.mapAbsenceEvents(List<com.otpp.ws.careerevent.AbsenceEvent>)
-#    java_signature 'java.util.List<com.otpp.domain.careerevent.events.AbsenceEvent> mapAbsenceEvents(java.util.List<com.otpp.ws.careerevent.AbsenceEvent>)'
+    # List<com.otpp.careerevent.events.AbsenceEvent> CareerEventManager.mapAbsenceEvents(List<com.otpp.ws.careerevent.AbsenceEvent>)
+    java_signature 'java.util.List<com.otpp.careerevent.events.AbsenceEvent> mapAbsenceEvents(java.util.List<com.otpp.ws.careerevent.AbsenceEvent>)'
     def mapAbsenceEvents(wsAbsences)
       domainAbsences = []
       wsAbsences.each { |wsAbsence|
@@ -50,8 +50,8 @@ class CareerEventManager
       return domainAbsences
     end
     
-    # com.otpp.domain.careerevent.events.AbsenceEvent WebServiceToDomainMappings.mapAbsenceEvents(com.otpp.ws.careerevent.AbsenceEvent)
-#    java_signature 'com.otpp.domain.careerevent.events.AbsenceEvent mapAbsenceEvents(com.otpp.ws.careerevent.AbsenceEvent)'
+    # com.otpp.careerevent.events.AbsenceEvent WebServiceToDomainMappings.mapAbsenceEvents(com.otpp.ws.careerevent.AbsenceEvent)
+    java_signature 'com.otpp.careerevent.events.AbsenceEvent mapAbsenceEvents(com.otpp.ws.careerevent.AbsenceEvent)'
     def mapAbsenceEvent(wsAbsence)
       if !wsAbsence
         return nil
@@ -62,8 +62,8 @@ class CareerEventManager
       return domainAbsence
     end
     
-    # void WebServiceToDomainMappings.mapAbstractEvent(com.otpp.domain.careerevent.events.AbsenceEvent, com.otpp.ws.careerevent.AbsenceEvent)
-#    java_signature 'void mapAbstractEvent(com.otpp.domain.careerevent.events.AbsenceEvent, com.otpp.ws.careerevent.AbsenceEvent)'
+    # void WebServiceToDomainMappings.mapAbstractEvent(com.otpp.careerevent.events.AbsenceEvent, com.otpp.ws.careerevent.AbsenceEvent)
+    java_signature 'void mapAbstractEvent(com.otpp.careerevent.events.AbsenceEvent, com.otpp.ws.careerevent.AbsenceEvent)'
     def mapAbstractEvent(domainAbsence, wsAbsence)
       domainAbsence.setChannel(wsAbsence.getChannel)
   #    domainAbsence.setCustomerType(wsAbsence.getCustomerType == nil ? nil : EventCustomer.valueOf(wsAbsence.getCustomerType))
@@ -90,19 +90,19 @@ class CareerEventManager
     end
     
     # com.otpp.domain.date.Date WebServiceToDomainMappings.mapDate(javax.xml.datatype.XMLGregorianCalendar)
-#    java_signature 'com.otpp.domain.date.Date mapDate(javax.xml.datatype.XMLGregorianCalendar)'
+    java_signature 'com.otpp.domain.date.Date mapDate(javax.xml.datatype.XMLGregorianCalendar)'
     def mapDate(calendarDate)
       calendarDate == nil ? nil : Date.new(calendarDate.getYear, calendarDate.getMonth(), calendarDate.getDay)
     end
     
     # com.otpp.core.InternalReferenceNumber WebServiceToDomainMappings.mapIrn(String)
-#    java_signature 'com.otpp.core.InternalReferenceNumber mapIrn(java.lang.String)'
+    java_signature 'com.otpp.core.InternalReferenceNumber mapIrn(java.lang.String)'
     def mapIrn(irnString)
       irnString == nil ? nil : InternalReferenceNumber.valueOf(irnString)
     end
     
     # com.otpp.domain.employer.EPW WebServiceToDomainMappings.mapEpw(com.otpp.ws.careerevent.Epw)
-#    java_signature 'com.otpp.domain.employer.EPW mapEpw(com.otpp.ws.careerevent.Epw)'
+    java_signature 'com.otpp.domain.employer.EPW mapEpw(com.otpp.ws.careerevent.Epw)'
     def mapEpw(wsEpw)
       wsEpw == nil ? nil : EPW.new(wsEpw.getEmployerIrn, wsEpw.getProfile, wsEpw.getWorkCode)
     end
