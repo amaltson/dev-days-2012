@@ -3,3 +3,20 @@ require 'rake/testtask'
 Rake::TestTask.new do |t|
     t.pattern = "test/*.rb"
 end
+
+desc 'Cleans compiled code'
+task :clean do
+  rm_rf 'target'
+end
+
+desc 'Compiles all JRuby code in src and packages it as a jar file'
+task :package do
+  
+  # Get the Java classpath from jbundler
+  require '.jbundler/classpath.rb'
+  classpath = JBUNDLER_CLASSPATH.join ':'
+
+  mkdir_p 'target/classes'
+  system "jrubyc --javac -5 -c #{classpath} src -t target/classes"
+  system 'jar cf target/CewsFacade.jar -C target/classes .'
+end
