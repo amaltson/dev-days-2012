@@ -1,8 +1,9 @@
 Bundler.require
 
 require 'java'
+java_package 'com.otpp.careerevent.manager'
 
-java_require 'CareerEventManager'
+#java_require 'CareerEventManager'
 
 #require 'dependencies/CareerEventWSDL-2.3.5.jar' # CareerEvent, AbsenceFitleringType
 #require 'dependencies/com.otpp.domain.references-1.1.9.jar' #
