@@ -102,7 +102,7 @@ public class Date implements Comparable<Date>, Serializable {
      */
     public Date(final int year, final int month, final int dayOfMonth) {
         Calendar aLocalDate = Calendar.getInstance();
-        aLocalDate.set(year, month, dayOfMonth);
+        aLocalDate.set(year, month-1, dayOfMonth);
         date = aLocalDate;
     }
 

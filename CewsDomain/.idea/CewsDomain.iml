@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="RUBY_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="PROVIDED" name="activemodel (v3.2.3, RVM: jruby-1.6.7) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="activerecord (v3.2.3, RVM: jruby-1.6.7) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="activesupport (v3.2.3, RVM: jruby-1.6.7) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="arel (v3.0.2, RVM: jruby-1.6.7) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="builder (v3.0.0, RVM: jruby-1.6.7) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bundler (v1.1.4, RVM: jruby-1.6.7) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="i18n (v0.6.0, RVM: jruby-1.6.7) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="jbundler (v0.0.1, RVM: jruby-1.6.7) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="minitest (v3.0.0, RVM: jruby-1.6.7) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="multi_json (v1.3.5, RVM: jruby-1.6.7) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rake (v0.9.2.2, RVM: jruby-1.6.7) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="ruby-maven (v3.0.3.0.29.0.pre, RVM: jruby-1.6.7) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="thor (v0.14.6, RVM: jruby-1.6.7) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="tzinfo (v0.3.33, RVM: jruby-1.6.7) [gem]" level="application" />
+  </component>
+</module>
+
