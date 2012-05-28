@@ -12,10 +12,17 @@ java_import 'com.otpp.domain.employer.ProfileCode'
 java_import 'com.otpp.domain.employer.WorkCode'
 
 class CareerEventFacade
-
-  def main()
+  
+  def getAbsences(irn)
+    absenceArray = []
+    dbAbsence = nil
+    domainAbsence = self.buildAbsence(dbAbsence)
+    absenceArray << domainAbsence
+    return absenceArray
+  end
+  
+  def buildAbsence(dbAbsence)
     absenceEvent = AbsenceEvent.new()
-    
     
     absenceEvent.setEventId(123456)
     
@@ -34,7 +41,11 @@ class CareerEventFacade
     absenceEvent.setEventCode('019')
     
     #absenceEvent.setCustomerType()
-    
+    return absenceEvent
+  end
+
+  def main()
+    build
     outputEvent(absenceEvent)
   end
 
@@ -48,8 +59,6 @@ class CareerEventFacade
 
   def outputEvent(absenceEvent)
     # These are the outputs required for the CEWS Viewer
-    
-
     puts "Member IRN: \t" + absenceEvent.getEntityIrn().toString()
     puts "EPW: \t\t" + absenceEvent.getEpw().toString()
     puts "Event ID: \t" + absenceEvent.getEventId().to_s()
