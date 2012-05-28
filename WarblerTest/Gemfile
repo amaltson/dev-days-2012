@@ -1,0 +1,5 @@
+source "http://rubygems.org"
+gem "activerecord"
+gem "activerecord-jdbcsqlite3-adapter"
+gem "rake"
+gem "minitest", :group => :test
