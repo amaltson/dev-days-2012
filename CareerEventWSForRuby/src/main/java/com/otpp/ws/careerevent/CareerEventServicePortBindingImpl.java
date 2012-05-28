@@ -1,19 +1,18 @@
-/**
- * CareerEventServicePortBindingImpl.java
- *
- * This file was auto-generated from WSDL
- * by the Apache Axis 1.4 Apr 22, 2006 (06:55:48 PDT) WSDL2Java emitter.
- */
-
 package com.otpp.ws.careerevent;
 
-public class CareerEventServicePortBindingImpl implements com.otpp.ws.careerevent.CareerEventService{
-    public java.lang.String getVersion() throws java.rmi.RemoteException {
-        return null;
-    }
+import java.util.List;
 
-    public com.otpp.ws.careerevent.AbsenceEvent[] getAbsences(java.lang.String memberIrn, com.otpp.ws.careerevent.Epw epw, java.util.Date startDate, java.util.Date endDate, int schoolYear) throws java.rmi.RemoteException {
-        return null;
-    }
+import javax.jws.WebService;
+import javax.xml.datatype.XMLGregorianCalendar;
 
+@WebService(wsdlLocation = "WEB-INF/wsdl/CareerEventService.wsdl", endpointInterface = "com.otpp.ws.careerevent.CareerEventService", targetNamespace = "http://careerevent.ws.otpp.com/", serviceName = "CareerEvent", portName = "CareerEventWebService")
+public class CareerEventServicePortBindingImpl implements CareerEventService {
+	public String getVersion() {
+		return "1.0.0-SNAPSHOT";
+	}
+
+	public List<AbsenceEvent> getAbsences(String arg0, Epw arg1,
+			XMLGregorianCalendar arg2, XMLGregorianCalendar arg3, int arg4) {
+		return null;
+	}
 }
