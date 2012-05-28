@@ -7,7 +7,7 @@ require 'src/CareerEventFacade'
 java_import 'com.otpp.core.InternalReferenceNumber'
 java_import 'com.otpp.careerevent.events.AbsenceEvent'
 
-class CallCewsJar < MiniTest::Unit::TestCase
+class CareerEventFacadeTests < MiniTest::Unit::TestCase
   def test_creating_absence_event
     absence = AbsenceEvent.new
     assert_equal nil, absence.event_id
@@ -22,27 +22,33 @@ class CallCewsJar < MiniTest::Unit::TestCase
   end
 
   def test_creating_date
-    date = com.otpp.domain.date.Date.new(20101010)
-    assert_equal '2010-10-10', date.to_s
+    date = javaDateFromInt(20081031)
+    assert_equal '2008-10-31', date.to_s
   end
   
   def test_buildEpw
-    facade = CareerEventFacade.new
     irn = '123456789'
     profileCode = 'ABR'
     workCode = 10
-    epw = facade.buildEpw(irn, profileCode, workCode)
+    epw = buildEpw(irn, profileCode, workCode)
     assert_equal(irn, epw.getEmployerIrn.to_s)
     assert_equal(profileCode, epw.getProfileCode.getProfileCode)
     assert_equal(workCode, epw.getWorkCode.getWorkcode)
   end
 
-  def test_getAbsences
-    irn = '123456789'
+  def test_getAbsences_fromDB_whereDBContainsData
+    irn = '896163008'
     facade = CareerEventFacade.new
     absences = facade.getAbsences(irn)
-    absence = absences.fetch(0)
     assert_equal(1, absences.length)
-    assert_equal('301999333', absence.getEntityIrn.to_s)
+    absence = absences.fetch(0)
+    assert_equal(irn, absence.getEntityIrn.to_s)
+  end
+
+  def test_getAbsences_fromDB_whereDBContainsNoData
+    irn = '111111111'
+    facade = CareerEventFacade.new
+    absences = facade.getAbsences(irn)
+    assert_equal(0, absences.length)
   end
 end
