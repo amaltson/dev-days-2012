@@ -13,7 +13,7 @@ MiniTest::Unit.autorun
 
 class CareerEventManagerTest < MiniTest::Unit::TestCase
   def testMyMethod
-    assert_equal 6, 6
+    assert_equal 'foo', 'bar'
   end
   
   def testMapIrn
