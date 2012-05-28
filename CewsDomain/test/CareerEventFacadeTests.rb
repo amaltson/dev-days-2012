@@ -22,7 +22,8 @@ class CareerEventFacadeTests < MiniTest::Unit::TestCase
   end
 
   def test_creating_date
-    date = javaDateFromInt(20081031)
+    facade = CareerEventFacade.new
+    date = facade.javaDateFromInt(20081031)
     assert_equal '2008-10-31', date.to_s
   end
   
@@ -30,7 +31,8 @@ class CareerEventFacadeTests < MiniTest::Unit::TestCase
     irn = '123456789'
     profileCode = 'ABR'
     workCode = 10
-    epw = buildEpw(irn, profileCode, workCode)
+    facade = CareerEventFacade.new
+    epw = facade.buildEpw(irn, profileCode, workCode)
     assert_equal(irn, epw.getEmployerIrn.to_s)
     assert_equal(profileCode, epw.getProfileCode.getProfileCode)
     assert_equal(workCode, epw.getWorkCode.getWorkcode)

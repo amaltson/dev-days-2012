@@ -15,12 +15,15 @@ java_import 'com.otpp.domain.employer.EPW'
 java_import 'com.otpp.domain.employer.ProfileCode'
 java_import 'com.otpp.domain.employer.WorkCode'
 
-dbLocation = 'dev-days.db'
-
-ActiveRecord::Base.establish_connection(:adapter => "jdbcsqlite3", :dbfile  => dbLocation)
 
 class CareerEventFacade
   
+  def initialize
+    dbLocation = 'dev-days.db'
+    ActiveRecord::Base.establish_connection(:adapter => "jdbcsqlite3", :dbfile  => dbLocation)
+  end
+
+  java_signature 'java.util.List<com.otpp.careerevent.events.AbsenceEvent> getAbsences(java.lang.String)'
   def getAbsences(irnString)
     dbAbsences = getDbAbsences(irnString)
     domainAbsences = dbAbsences.collect{|dbAbsence| self.buildAbsence(dbAbsence)}
@@ -67,17 +70,17 @@ class CareerEventFacade
     puts "Event Type: \t" + absenceEvent.getPaymentExpiryDate().toString()
     puts "Event Type: \t" + absenceEvent.getPaymentExpiryNotificationDate().toString()
   end
-end
 
-def javaDateFromInt(int)
-  return com.otpp.domain.date.Date.new(int)
-end
+  def javaDateFromInt(integerDate)
+    return com.otpp.domain.date.Date.new(integerDate)
+  end
 
-def buildEpw(irn, profileCode, workCode)
-  e = InternalReferenceNumber.valueOf(irn)
-  p = ProfileCode.new(profileCode)
-  w = WorkCode.new(workCode)
-  epw = EPW.new(e, p, w)
-  return epw
+  def buildEpw(irn, profileCode, workCode)
+    e = InternalReferenceNumber.valueOf(irn)
+    p = ProfileCode.new(profileCode)
+    w = WorkCode.new(workCode)
+    epw = EPW.new(e, p, w)
+    return epw
+  end
 end
 

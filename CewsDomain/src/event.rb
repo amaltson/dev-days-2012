@@ -23,7 +23,8 @@ class Event < ActiveRecord::Base
   alias_attribute :expiryDate, :EXPIRY_DATE
   alias_attribute :status, :STATUS
   
-  def to_s
+  java_signature 'java.lang.String toString()'
+  def toString
     "IRN:" + self.legalEntityIrn + ", EPW:" + self.employerIrn + "," + self.employerProfileId + "," + self.workCode.to_s + ", ISSUE:" + self.issue
   end
   
