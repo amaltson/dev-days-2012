@@ -121,7 +121,7 @@ public class Date implements Comparable<Date>, Serializable {
         final int year = Integer.valueOf(aDate.substring(0, 4));
         final int month = Integer.valueOf(aDate.substring(4, 6));
         final int day = Integer.valueOf(aDate.substring(6, 8));
-        aLocalDate.set(year, month, day);
+        aLocalDate.set(year, month-1, day);
         date = aLocalDate;
     }
 
@@ -230,7 +230,7 @@ public class Date implements Comparable<Date>, Serializable {
      * @return an integer representing the month if it is a specific date. Undefined if it is a past date or future date.
      */
     public int getMonthIndex() {
-        return getDate().get(Calendar.MONTH);
+        return getDate().get(Calendar.MONTH)+1;
     }
 
     /**
