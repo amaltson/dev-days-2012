@@ -1,0 +1,11 @@
+eclipse.preferences.version=1
+encoding//src/main/java/com/otpp/ws/careerevent/AbsenceEvent.java=UTF-8
+encoding//src/main/java/com/otpp/ws/careerevent/AbstractEvent.java=UTF-8
+encoding//src/main/java/com/otpp/ws/careerevent/Attribute.java=UTF-8
+encoding//src/main/java/com/otpp/ws/careerevent/CareerEvent.java=UTF-8
+encoding//src/main/java/com/otpp/ws/careerevent/CareerEventLocator.java=UTF-8
+encoding//src/main/java/com/otpp/ws/careerevent/CareerEventService.java=UTF-8
+encoding//src/main/java/com/otpp/ws/careerevent/CareerEventServicePortBindingImpl.java=UTF-8
+encoding//src/main/java/com/otpp/ws/careerevent/CareerEventServicePortBindingSkeleton.java=UTF-8
+encoding//src/main/java/com/otpp/ws/careerevent/CareerEventServicePortBindingStub.java=UTF-8
+encoding//src/main/java/com/otpp/ws/careerevent/Epw.java=UTF-8
