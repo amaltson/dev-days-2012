@@ -1,5 +1,5 @@
 # TODO uncomment this when trying bundler packaging again
-#Bundler.require
+Bundler.require
 
 require 'java'
 java_package 'com.otpp.careerevent.manager'
@@ -13,8 +13,8 @@ java_package 'com.otpp.careerevent.manager'
 #require '/home/user/.m2/repository/otpp/domain/com.otpp.domain.careerevent/5.0.2/com.otpp.domain.careerevent-5.0.2.jar' # AbsenceEvent, EventAttribute, EventCustomer
 
 # TODO use these w/ stripped down jars
-require '/home/user/.m2/repository/otpp/devdays/com.otpp.devdays.careerevent/1.0.0-SNAPSHOT/com.otpp.devdays.careerevent-1.0.0-SNAPSHOT.jar'
-require '/home/user/.m2/repository/otpp/devdays/otpp.devdays.ws.careerevent.CareerEventWSDL/1.0.0-SNAPSHOT/otpp.devdays.ws.careerevent.CareerEventWSDL-1.0.0-SNAPSHOT.jar'
+#require '/home/user/.m2/repository/otpp/devdays/otpp.devdays.ws.careerevent.CareerEventWSDL/1.0.0-SNAPSHOT/otpp.devdays.ws.careerevent.CareerEventWSDL-1.0.0-SNAPSHOT.jar'
+#require '/home/user/.m2/repository/otpp/devdays/otpp.devdays.ws.careerevent.CareerEventWSDL/1.0.0-SNAPSHOT/otpp.devdays.ws.careerevent.CareerEventWSDL-1.0.0-SNAPSHOT.jar'
 
 java_import 'com.otpp.domain.employer.EPW' # TODO use w/ stripped down CewsServer
 java_import 'com.otpp.core.InternalReferenceNumber'
