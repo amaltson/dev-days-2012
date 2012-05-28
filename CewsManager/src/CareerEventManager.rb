@@ -1,22 +1,31 @@
-Bundler.require
+# TODO uncomment this when trying bundler packaging again
+#Bundler.require
 
 require 'java'
 java_package 'com.otpp.careerevent.manager'
 
 #java_require 'CareerEventManager'
 
-#require 'dependencies/CareerEventWSDL-2.3.5.jar' # CareerEvent, AbsenceFitleringType
-#require 'dependencies/com.otpp.domain.references-1.1.9.jar' #
-#require 'dependencies/com.otpp.domain.core-5.1.0.jar' # EPW, InternalReferenceNumber
-#require 'dependencies/com.otpp.domain.careerevent-5.0.2.jar' # AbsenceEvent, EventAttribute, EventCustomer
-java_import 'com.otpp.domain.employer.EPW'
+# TODO remove when using stripped down CewsServer
+#require '/home/user/.m2/repository/otpp/ws/careerevent/CareerEventWSDL/2.3.5/CareerEventWSDL-2.3.5.jar' # CareerEvent, AbsenceFitleringType
+#require '/home/user/.m2/repository/otpp/domain/com.otpp.domain.references/1.1.4/com.otpp.domain.references-1.1.4.jar'
+#require '/home/user/.m2/repository/otpp/domain/com.otpp.domain.core/5.1.0/com.otpp.domain.core-5.1.0.jar' # EPW, InternalReferenceNumber
+#require '/home/user/.m2/repository/otpp/domain/com.otpp.domain.careerevent/5.0.2/com.otpp.domain.careerevent-5.0.2.jar' # AbsenceEvent, EventAttribute, EventCustomer
+
+# TODO use these w/ stripped down jars
+require '/home/user/.m2/repository/otpp/devdays/com.otpp.devdays.careerevent/1.0.0-SNAPSHOT/com.otpp.devdays.careerevent-1.0.0-SNAPSHOT.jar'
+require '/home/user/.m2/repository/otpp/devdays/otpp.devdays.ws.careerevent.CareerEventWSDL/1.0.0-SNAPSHOT/otpp.devdays.ws.careerevent.CareerEventWSDL-1.0.0-SNAPSHOT.jar'
+
+java_import 'com.otpp.domain.employer.EPW' # TODO use w/ stripped down CewsServer
 java_import 'com.otpp.core.InternalReferenceNumber'
 java_import 'com.otpp.domain.date.Date'
 #java_import 'com.otpp.domain.message.ProcessingMessageImpl'
 java_import 'com.otpp.ws.careerevent.CareerEvent'
 #java_import 'com.otpp.ws.careerevent.AbsenceFilteringType'
-java_import 'com.otpp.careerevent.events.AbsenceEvent'
-java_import 'com.otpp.careerevent.events.EventAttribute'
+java_import 'com.otpp.careerevent.events.AbsenceEvent' # TODO use w/ stripped down CewsServer
+#java_import 'com.otpp.domain.careerevent.events.AbsenceEvent'
+java_import 'com.otpp.careerevent.events.EventAttribute' # TODO use w/ stripped down CewsServer
+#java_import 'com.otpp.domain.careerevent.events.EventAttribute'
 #java_import 'com.otpp.domain.careerevent.events.EventCustomer'
 java_import 'java.net.URL'
 java_import 'javax.xml.namespace.QName'
@@ -24,7 +33,7 @@ java_import 'javax.xml.namespace.QName'
 class CareerEventManager
   
   def initialize()
-    wsdlUrl = java.net.URL.new('http://wasdev0/CareerEventWS/CareerEvent?wsdl') # this will be deployed as a local WS at dev days in VM, strip the wsdl down to just getAbsences before checking it, derek did it?
+    wsdlUrl = java.net.URL.new('http://localhost:8080/services/CareerEventService?wsdl')
     qName = QName.new("http://careerevent.ws.otpp.com/", "CareerEvent")
     service = CareerEvent.new(wsdlUrl, qName)
     cews = service.getCareerEventWebService()
@@ -34,12 +43,12 @@ class CareerEventManager
   # List<com.otpp.careerevent.events.AbsenceEvent> CareerEventManager.getAbsences(com.otpp.core.InternalReferenceNumber)
   java_signature 'java.util.List<com.otpp.careerevent.events.AbsenceEvent> getAbsences(com.otpp.core.InternalReferenceNumber)'
   def getAbsences(memberIrn)
-#    wsAbsences = @careerEventService.getAbsences(memberIrn.toString, nil, nil, nil, 0, AbsenceFilteringType::NONE)
-    wsAbsences = @careerEventService.getAbsences(memberIrn.toString, nil, nil, nil, 0)
+#    wsAbsences = @careerEventService.getAbsences(memberIrn.toString, nil, nil, nil, 0, com.otpp.ws.careerevent.AbsenceFilteringType::NONE)
+    wsAbsences = @careerEventService.getAbsences(memberIrn.toString, nil, nil, nil, 0) # TODO change back to this when using stripped down CewsServer
     mapAbsenceEvents(wsAbsences)
   end
   
-  private
+#  private
     
     # List<com.otpp.careerevent.events.AbsenceEvent> CareerEventManager.mapAbsenceEvents(List<com.otpp.ws.careerevent.AbsenceEvent>)
     java_signature 'java.util.List<com.otpp.careerevent.events.AbsenceEvent> mapAbsenceEvents(java.util.List<com.otpp.ws.careerevent.AbsenceEvent>)'
