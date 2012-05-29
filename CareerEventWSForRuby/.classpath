@@ -11,6 +11,6 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="/home/arthur/work/ruby/dev-days-2012/CewsDomain/target/with-gems.jar"/>
+	<classpathentry kind="lib" path="/Users/arthur/work/ruby/dev-days-2012/CewsDomain/CewsDomain.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

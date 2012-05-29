@@ -5,7 +5,7 @@ require 'active_record'
 require 'rubygems'
 require 'src/event'
 
-java_require 'CareerEventFacade'
+#java_require 'CareerEventFacade'
 
 java_package 'com.otpp.careerevent'
 
