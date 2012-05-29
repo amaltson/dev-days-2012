@@ -1,3 +1,5 @@
+java_package 'com.otpp.careerevent'
+
 class Event < ActiveRecord::Base
   # by default ActiveRecord looks for an "events" table in DB
   # but our table is called SEP790
