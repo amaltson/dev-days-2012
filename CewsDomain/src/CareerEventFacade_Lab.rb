@@ -1,14 +1,13 @@
 Bundler.require
 
 require 'java'
-require 'active_record'
+# TODO 1: resolve the error because ruby can't find the active_record library'
 require 'rubygems'
 require 'src/event'
 
 java_package 'com.otpp.careerevent'
 
 java_import 'com.otpp.core.InternalReferenceNumber'
-#java_import 'com.otpp.domain.date.Date'
 java_import 'com.otpp.careerevent.events.AbsenceEvent'
 java_import 'com.otpp.careerevent.events.CareerEventType'
 java_import 'com.otpp.domain.employer.EPW'
@@ -26,7 +25,8 @@ class CareerEventFacade
   java_signature 'java.util.List<com.otpp.careerevent.events.AbsenceEvent> getAbsences(java.lang.String)'
   def getAbsences(irnString)
     dbAbsences = getDbAbsences(irnString)
-    domainAbsences = dbAbsences.collect{|dbAbsence| self.buildAbsence(dbAbsence)}
+    # TODO 4: Convert each dbAbsence into a domainAbsence
+    domainAbsences = []
     return domainAbsences
   end
 
@@ -37,25 +37,16 @@ class CareerEventFacade
   end
 
   def buildAbsence(dbAbsence)
-    absenceEvent = AbsenceEvent.new()
-
+    absenceEvent = AbsenceEvent.new
     absenceEvent.setEventId(dbAbsence.EVENT_ID)
-    
     absenceEvent.setEntityIrn(InternalReferenceNumber.valueOf(dbAbsence.legalEntityIrn))
-
     absenceEvent.setStartDate(javaDateFromInt(dbAbsence.effectiveDate))
-    
     absenceEvent.setEndDate(javaDateFromInt(dbAbsence.expiryDate))
-    
     absenceEvent.setEpw(buildEpw(dbAbsence.employerIrn.to_s, dbAbsence.employerProfileId, dbAbsence.workCode))
-    
     absenceEvent.setEventType(CareerEventType.valueOf('ABSENCE'))
-    
     absenceEvent.setEventCode(dbAbsence.eventCode)
-    
     return absenceEvent
   end
-
 
   def outputEvent(absenceEvent)
     # These are the outputs required for the CEWS Viewer

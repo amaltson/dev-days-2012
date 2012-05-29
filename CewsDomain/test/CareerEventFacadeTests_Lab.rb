@@ -2,21 +2,23 @@ Bundler.require
 
 require 'minitest/autorun'
 require 'java'
-require 'src/CareerEventFacade'
+require 'src/CareerEventFacade_Lab'
 
-java_import 'com.otpp.core.InternalReferenceNumber'
-java_import 'com.otpp.careerevent.events.AbsenceEvent'
+#TODO 2b: You will probably need to do something here too
+#TODO 3b: You will probably need to do something here too
 
 class CareerEventFacadeTests < MiniTest::Unit::TestCase
+
   def test_creating_absence_event
-    absence = AbsenceEvent.new
+    # TODO 3a: Must create a new Java instance of AbsenceEvent (HINT: this is already done elsewhere in the code)
+    absence = nil
     assert_equal nil, absence.event_id
     assert_equal nil, absence.event_type
     assert_equal nil, absence.member_irn
   end
 
   def test_creating_irn
-    irn = InternalReferenceNumber.value_of '123456789'
+    # TODO 2a: Must create a new Java instance of IRN (HINT: this is already done elsewhere in the code)
     assert_equal true, irn.valid?
     assert_equal '123456789', irn.to_s
   end
@@ -45,10 +47,6 @@ class CareerEventFacadeTests < MiniTest::Unit::TestCase
     assert_equal(irn, absence.getEntityIrn.to_s)
   end
 
-  def test_getAbsences_fromDB_whereDBContainsNoData
-    irn = '111111111'
-    facade = CareerEventFacade.new
-    absences = facade.getAbsences(irn)
-    assert_equal(0, absences.length)
-  end
+  #TODO 5: Write a unit test that verified that a junk IRN has no events returned
+
 end
