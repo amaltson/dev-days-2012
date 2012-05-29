@@ -1,5 +1,10 @@
 #Bundler.require
 
+$LOAD_PATH << "gems"
+puts 'Load path:'
+  $LOAD_PATH.each { |dir| puts dir }
+puts
+
 require 'java'
 require 'active_record'
 require 'rubygems'
