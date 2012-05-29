@@ -1,5 +1,3 @@
-#Bundler.require
-
 $LOAD_PATH << "gems/activemodel-3.2.3/lib"
 $LOAD_PATH << "gems/activerecord-3.2.3/lib"
 $LOAD_PATH << "gems/activerecord-jdbc-adapter-1.2.2/lib"
@@ -16,17 +14,13 @@ $LOAD_PATH << "gems/rake-0.9.2.2/lib"
 $LOAD_PATH << "gems/ruby-maven-3.0.3.0.29.0.pre/lib"
 $LOAD_PATH << "gems/thor-0.14.6/lib"
 $LOAD_PATH << "gems/tzinfo-0.3.33/lib"
-puts 'Load path:'
-  $LOAD_PATH.each { |dir| puts dir }
-puts
-
-puts "__FILE__: #{__FILE__}"
-puts "dirname: #{File.dirname(__FILE__)}"
 
 require 'java'
 require 'active_record'
 require 'rubygems'
 require 'src/event'
+
+# Bundler.require
 
 #java_require 'CareerEventFacade'
 

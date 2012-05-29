@@ -1,7 +1,8 @@
 require 'rake/testtask'
+require 'warbler'
 
 Maven = Struct.new(:groupId, :artifactId, :version)
-maven = Maven.new('otpp.careerevent', 'com.otpp.careerevent.CareerEventDomain', '1.0.0-SNAPSHOT')
+maven = Maven.new('otpp.devdays', 'com.otpp.devdays.careerevent.CareerEventDomain', '1.0.0-SNAPSHOT')
 jarfile = "#{maven.artifactId}-#{maven.version}.jar"
 
 task :default => [:clean, :install]
@@ -17,17 +18,16 @@ Rake::TestTask.new do |t|
   t.pattern = "test/*.rb"
 end
 
+Warbler::Task.new
+
 desc 'Compiles all JRuby code in src and packages it as a jar file'
-task :package => [:test] do
+task :package => [:test, :jar] do
   puts "Packaging..."
 
+  mkdir_p 'target'
   # Get the Java classpath from jbundler
-  require '.jbundler/classpath.rb'
-  classpath = JBUNDLER_CLASSPATH.join ':'
-
-  mkdir_p 'target/classes'
-  system "jrubyc --javac -5 -c #{classpath} src -t target/classes"
-  system "jar cf target/#{jarfile} -C target/classes ."
+  system "mv CewsDomain.jar target/#{jarfile}"
+  system "rm -rf com"
 end
 
 desc 'Use Maven to install the generated jar to the local .m2'

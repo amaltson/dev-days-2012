@@ -3,4 +3,7 @@ gem "jbundler"
 gem "activerecord"
 gem "activerecord-jdbcsqlite3-adapter"
 gem "rake"
+group :development do
+    gem "warbler"
+end
 gem "minitest", :group => :test
