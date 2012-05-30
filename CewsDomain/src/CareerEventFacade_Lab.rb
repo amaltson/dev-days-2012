@@ -2,6 +2,7 @@ Bundler.require
 
 require 'java'
 # TODO 1: resolve the error because ruby can't find the active_record library'
+require 'active_record'
 require 'rubygems'
 require 'src/event'
 
