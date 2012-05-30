@@ -1,4 +1,8 @@
-Bundler.require
+begin
+  Bundler.require
+rescue
+  # This means we're in a Java environment
+end
 
 require 'java'
 java_package 'com.otpp.careerevent.manager'

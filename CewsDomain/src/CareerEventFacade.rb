@@ -20,9 +20,11 @@ require 'active_record'
 require 'rubygems'
 require 'src/event'
 
-# Bundler.require
-
-#java_require 'CareerEventFacade'
+begin
+  Bundler.require
+rescue
+  # This means we're in a Java environment
+end
 
 java_package 'com.otpp.careerevent'
 
